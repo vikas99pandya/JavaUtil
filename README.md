@@ -1,5 +1,5 @@
 Build:
-Do 'maven clean install' from root
+Do 'mvn clean install' from root
 
 Run:
 1) Go to path target via 'cd target' after build completion
