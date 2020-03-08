@@ -188,5 +188,28 @@ public class AppTest {
         assertEquals(count, 17);
     }
 
+    @Test
+    public void testAppLogic_count4() throws AppException{
+        String startTime="01:54:00";
+        String endTime="01:54:00";
+        int count=appUtility.count(startTime, endTime);
+        assertEquals(count, 0);
+    }
+
+    @Test
+    public void testAppLogic_count5() throws AppException{
+        String startTime="02:00:00";
+        String endTime="02:00:00";
+        int count=appUtility.count(startTime, endTime);
+        assertEquals(count, 1);
+    }
+
+    @Test
+    public void testAppLogic_count6_WithSpace() throws AppException{
+        String startTime=" 01:00:00 ";
+        String endTime="  01:10:00  ";
+        int count=appUtility.count(startTime, endTime);
+        assertEquals(count, 9);
+    }
 
 }

@@ -21,6 +21,7 @@ public class AppUtility {
      * @param startTimeStr input start date provided by user
      * @param endTimeStr   input end date provided by user
      * @return int amount of times where only 2 digits appear in every possible combination in a specific time range
+     *         assuming start and end time inclusive
      * @throws AppException if error occurs while calculation logic
      */
     public int count(String startTimeStr, String endTimeStr) throws AppException {
