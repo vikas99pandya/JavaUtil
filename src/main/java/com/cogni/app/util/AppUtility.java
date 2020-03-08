@@ -6,9 +6,6 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.List;
-import java.util.stream.Collectors;
 
 
 /**
@@ -35,32 +32,25 @@ public class AppUtility {
 
         if(validateInputData(startTimeStr,endTimeStr)) {
 
-            LocalTime startTime = LocalTime.parse(startTimeStr.trim(), DateTimeFormatter.ofPattern(AppConstants.TIME_FORMAT));
-            LocalTime endTime = LocalTime.parse(endTimeStr.trim(), DateTimeFormatter.ofPattern(AppConstants.TIME_FORMAT));
+            LocalTime startTime = LocalTime.parse(startTimeStr.trim(), timeFormatter);
+            LocalTime endTime = LocalTime.parse(endTimeStr.trim(), timeFormatter);
 
             if(!(endTime.compareTo(startTime) >= AppConstants.ZERO)){
                     throw new AppException(AppConstants.AppError.END_DATE, null);
             }
 
             while (endTime.compareTo(startTime) >= AppConstants.ZERO) {
-                HashSet<Character> appSet = new HashSet();
                 String newLocalTime = startTime.format(timeFormatter);
 
-                List<Character> localChars = newLocalTime.chars()
-                        .mapToObj(e -> (char) e).collect(Collectors.toList());
-                localChars.stream().forEach(ch -> {
-                    appSet.add(ch);
-                });
-                if (appSet.size() == AppConstants.THREE) {
+                if(newLocalTime.chars().distinct().count()== AppConstants.THREE){
                     totalCount++;
                 }
-
                 startTime = startTime.plusSeconds(AppConstants.ONE);
 
+                // check if time reached to final end then break from loop
                 if(startTime.format(timeFormatter).equalsIgnoreCase(AppConstants.START_TIME)) {
                    break;
                 }
-
             }
         }
 
