@@ -53,7 +53,6 @@ public class AppUtility {
                 });
                 if (appSet.size() == AppConstants.THREE) {
                     totalCount++;
-                    LOG.info(newLocalTime);
                 }
 
                 startTime = startTime.plusSeconds(AppConstants.ONE);
