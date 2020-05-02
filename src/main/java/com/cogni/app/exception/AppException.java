@@ -5,12 +5,15 @@ import com.cogni.app.util.AppConstants;
 
 /**
  * Exception class to handle error situation in calculation logic
+ * commit message...
  */
 public class AppException extends Exception {
 
     private static final long serialVersionUID = -4908881206111894083L;
 
     private final String errorCode;
+    
+    
 
 
     /**
