@@ -5,7 +5,7 @@ import com.cogni.app.util.AppConstants;
 
 /**
  * Exception class to handle error situation in calculation logic
- * commit message...
+ * .....
  */
 public class AppException extends Exception {
 
