@@ -2,6 +2,7 @@ package com.cogni.app.util;
 
 /**
  * Constant class to store static data to be used in application..
+ * 1st change
  */
 public class AppConstants {
 
