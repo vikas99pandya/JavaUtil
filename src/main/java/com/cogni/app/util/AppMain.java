@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * Main class for initiating the calculation logic
+ * 1st change
  */
 public class AppMain {
 
